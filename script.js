@@ -1,6 +1,10 @@
-var travelItems = new Array(4);
+var destPlaces = 4
+var destProps = 3
+var travelItems = new Array(destPlaces);
+var x = 0;
+var y = 0;
 
-for(i=0; i<5; i++){
+for(i=0; i <= destProps; i++){
     travelItems[i] = new Array();
 }
 
@@ -20,6 +24,18 @@ travelItems[3][0] = "New York"
 travelItems[3][1] = 5;
 travelItems[3][2] = "230\$"
 
-console.log(travelItems[0][0]);
-console.log(travelItems[1][1]);
-console.log(travelItems[0][2]);
+console.log(travelItems[3][0])
+
+var tbl = document.createElement("TABLE");
+document.body.appendChild(tbl);
+tbl.setAttribute("border", "2");
+
+for (x=0; x <= destProps; x++){
+    var createRow = document.createElement("TR");
+    tbl.appendChild(createRow);
+    for (y=0; y <= destPlaces; y++){
+        var createData = document.createElement("TD");
+        createRow.appendChild(createData);
+    }
+}
+ 
