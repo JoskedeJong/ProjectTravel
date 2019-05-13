@@ -5,7 +5,9 @@ Goal: Create the initial set up for a travel shop. The website should have a fun
 #### goals
 1. [x] create array with multiple properties for each travel
 2. [x] created dynamically generated table
-3. [ ] implement properties in table
+3. [x] implement properties in table
+- [ ] create buttons for sorting and links, as well as legend names
+- [ ] implement sorting function
 4. [ ] set up basic html structure and css lay-out for sorting page
 5. [ ] create clickable button for each travel
 6. [ ] create basic set-up for pop-up window that appears after pop-up
