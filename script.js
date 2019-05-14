@@ -31,25 +31,25 @@ travelItems[1][0] = 1;
 travelItems[1][1] = "Moscow";
 travelItems[1][2] = "4\/5";
 travelItems[1][3] = "120\$";
-travelItems[1][4] = ""; 
+travelItems[1][4] = "a"; 
 
 travelItems[2][0] = 2;
 travelItems[2][1] = "Berlin";
 travelItems[2][2] = "2\/5";
 travelItems[2][3] = "80\$";
-travelItems[2][4] = ""; 
+travelItems[2][4] = "aa"; 
 
 travelItems[3][0] = 3;
 travelItems[3][1] = "New York";
 travelItems[3][2] = "5\/5";
 travelItems[3][3] = "230\$";
-travelItems[3][4] = ""; 
+travelItems[3][4] = "aaa"; 
 
 travelItems[4][0] = 4;
 travelItems[4][1] = "Sydney";
 travelItems[4][2] = "3\/5";
 travelItems[4][3] = "150\$"; 
-travelItems[4][4] = ""; 
+travelItems[4][4] = "aaaa"; 
 
 // console.log(travelItems);
 
@@ -95,40 +95,28 @@ function sortFunction(id){
         allCombined.sort();                             // this is where I sort the new array
     }
 
-    for (n=0; n<=4; n++){                              // makes new array that only contains the identifiers, in sorted order
+    for (n=0; n<=destProps; n++){                              // makes new array that only contains the identifiers, in sorted order
 
         var selectForMeasure = allCombined[n];
         var strLength = selectForMeasure.length;
         newArray.push(allCombined[n][(strLength - 1)]);
     }    
 
-    for (t=0; t<destProps; t++){                        // t is order-value of items in newArray, r is value of these items
+    for (t=0; t<=destProps; t++){                        // t is order-value (location) of items in newArray, r is value of these items
         var r = newArray[t];
-
-        // var arrays = {
-        //     subArray1: [],
-        //     subArray2: [],
-        //     subArray3: [],
-        //     subArray4: [],
-        //     subArray5: []
-        // };    
-
-        // function setArray(y){
-        //     arrays['subArray' + y];
-        // }
-        
-        // setArray(t);
-        
-        for (p=0; p<destProps; p++){                   /* for all the values (=t) values of newArray I want properties from item r  '1 through destProps', 
-                                                            except for the last one */
-            var intermediate = travelItems[r][p];                                             
-            subArray.push(intermediate);
-            console.log(subArray);       
+        for (p=0; p<=destProps; p++){                   /* for all the values (=t) values of newArray I want properties from item r  '1 through destProps', 
+                                                            except for the last one. p will go through all location values for array ith id r */                                             
+            subArray.push(travelItems[r][p]); 
         }
-        
-        masterArray.push(subArray);
     }
-    // console.log(masterArray);       
+    for (s=0; s<=destProps; s++){
+        var slice = subArray.slice((s * 5),((s * 5) + 5));
+        masterArray.push(slice);
+        var slice = "aaa";
+    }
+
+    console.log(masterArray);   
+    // var masterArray = [];   
 }
 
                                                     /* what do I want to achieve now? I want to read out every [1] character for each element of the string. To do what?
