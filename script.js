@@ -95,12 +95,22 @@ function sortFunction(id){
         allCombined.sort();                             // this is where I sort the new array
     }
 
-    for (n=0; n<=destProps; n++){                              // makes new array that only contains the identifiers, in sorted order
+    for (n=0; n<=destProps; n++){                       // makes new array that only contains the identifiers, in sorted order
 
         var selectForMeasure = allCombined[n];
         var strLength = selectForMeasure.length;
         newArray.push(allCombined[n][(strLength - 1)]);
     }    
+
+    indexPicker = newArray.findIndex(searchFunction);
+    function searchFunction(value){
+        return value == 0;
+    }
+    function removeFunction(){
+        newArray.splice(indexPicker, 1);                // removes element picked out by indexPicker
+        newArray.unshift(0);                            // adds element 0 at start of array
+    }
+    removeFunction(newArray);
 
     for (t=0; t<=destProps; t++){                        // t is order-value (location) of items in newArray, r is value of these items
         var r = newArray[t];
