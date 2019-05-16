@@ -1,21 +1,16 @@
 var anyY = 0;
 var anyX = 0;
-var w = 0;
-var q = 0;
-var r = 0;
-var y = 0;
-var x = 0;
-var s = 0;
-var t = 0;
-var n = 0;
 var a = 0;
 var q = 0;
+var r = 0;
+var x = 0;
+var y = 0;
 var id = 0;
 var slice = 0;
 var travelItems = [[0,"Destination", "Rating", "Cost", "word", "_"],[1,"Moscow","4\/5","120\$","one","a"],[2,"Berlin","2\/5","80\$","two","aa"],[3,"New York","5\/5","230\$","three","aaa"],[4,"Sydney","3\/5","150\$", "four", "aaaa",]];
 var allSelected = [];
 var allIdentifiers = [];
-var allCombined = [];                                               // this conversion currently only works for single-digit row-identifiers, but can be modified for multi-digit
+var allCombined = [];                                   // this conversion currently only works for single-digit row-identifiers, but can be modified for multi-digit
 var frontString = [];
 var backtString = [];
 var unstrung = [];
@@ -25,11 +20,11 @@ var masterArray = [];
 var strLength = [];
 var selectForMeasure = [];
 
-var anyArray = travelItems;                                             // convert an array (in this case travelItems) to var anyAray. This should accept all arrays
+var anyArray = travelItems;                             // convert an array (in this case travelItems) to var anyAray. This should accept all arrays
 var anyY = anyArray.length;
 var anyX = anyArray[0].length;
 
-var tbl = document.createElement("TABLE");                              // creates basis for rest of table to be appended to
+var tbl = document.createElement("TABLE");              // creates basis for rest of table to be appended to
 document.body.appendChild(tbl);
 tbl.setAttribute("border", "2");
 
@@ -48,15 +43,11 @@ function emptyAll() {
     selectForMeasure.length = 0;
     slice.length = 0;
     combineString = 0;
-    w = 0;
+    a = 0;
     q = 0;
     r = 0;
-    y = 0;
     x = 0;
-    s = 0;
-    t = 0;
-    n = 0;
-    a = 0;
+    y = 0;
     id = 0;
     clickedId = 0;
 }
@@ -82,10 +73,10 @@ function sortFunction(){                                // function that sorts t
         allCombined.sort();                             // this is where I sort the new array
     }
 
-    for (n=0; n<anyY; n++){                             // makes new array that only contains the identifiers, in sorted order
-        var selectForMeasure = allCombined[n];
+    for (a=0; a<anyY; a++){                             // makes new array that only contains the identifiers, in sorted order
+        var selectForMeasure = allCombined[a];
         var strLength = selectForMeasure.length;
-        newArray.push(allCombined[n][(strLength - 1)]);
+        newArray.push(allCombined[a][(strLength - 1)]);
     }    
 
     indexPicker = newArray.findIndex(searchFunction);   //function made to keep table-header values on top. this picks the values, the next function moves them.
@@ -98,16 +89,16 @@ function sortFunction(){                                // function that sorts t
     }
     removeHeaderValues(newArray);
 
-    for (t=0; t<anyY; t++){                             // t is order-value (location) of items in newArray, r is id-value of these items
-        var r = newArray[t];
-        for (p=0; p<anyX; p++){                         // for all the values (=t) values of newArray I want properties from item r  '1 through anyX'. 
-                                                        // p will go through all location values for array ith id r */                                             
-            subArray.push(anyArray[r][p]);              // subArray is now a one-dimensional string with all the values that should be in master Array
+    for (a=0; a<anyY; a++){                             // a is order-value (location) of items in newArray, r is id-value of these items
+        var r = newArray[a];
+        for (b=0; b<anyX; b++){                         // for all the values (=a) values of newArray I want properties from item r  '1 through anyX'. 
+                                                        // b will go through all location values for array ith id r */                                             
+            subArray.push(anyArray[r][b]);              // subArray is now a one-dimensional string with all the values that should be in master Array
         }
     }
 
-    for (s=0; s<anyY; s++){                             // slices subArray into small arrays stored in 'slice', which are then pushed to masterArray
-        var slice = subArray.slice((s * anyX),((s * anyX) + anyX));
+    for (a=0; a<anyY; a++){                             // slices subArray into small arrays stored in 'slice', which are then pushed to masterArray
+        var slice = subArray.slice((a * anyX),((a * anyX) + anyX));
         masterArray.push(slice);
     }
 }    
